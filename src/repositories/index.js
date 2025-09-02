@@ -10,17 +10,17 @@ let bookRepository = null;
 const AirportsRepository = () => airportsJSON;
 const DestinationsRepository = () => destinationsJSON;
 const DealsRepository = () => dealsJSON;
+
 const BookRepository = () => {
     if (!bookRepository) {
-        const cosmosdb_name = process.env.COSMOS_DB_NAME;
-        const cosmosdb_key = process.env.COSMOS_DB_AUTH_KEY;
-        const cosmosdb_url = process.env.COSMOS_DB_URL;
-        const database_name = process.env.COSMOS_DB_DATABASE;
-        bookRepository = new _BookRepository({ cosmosdb_name, cosmosdb_key, cosmosdb_url, database_name });
+        // Use MongoDB environment variables instead of CosmosDB
+        const mongo_url = process.env.MONGO_URL || 'mongodb://localhost:27017';
+        const database_name = process.env.MONGO_DB_NAME || 'contosoair';
+        bookRepository = new _BookRepository({ mongo_url, database_name });
     }
-
     return bookRepository;
-}
+};
+
 const FlightsRepository = () => new _FlightsRepository(flightsJSON);
 
 module.exports = {
@@ -30,3 +30,4 @@ module.exports = {
     BookRepository,
     FlightsRepository
 };
+

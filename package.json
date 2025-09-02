@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server.js --production",
+    "start": "node ./server.js --development",
     "local:build": "webpack --env.NODE_ENV=development --mode=development",
     "build": "exit 0",
     "unit-test": "jest",
@@ -30,7 +30,7 @@
     "handlebars": "^4.0.12",
     "i18n": "^0.8.3",
     "moment": "^2.22.2",
-    "mongoose": "^5.3.7",
+    "mongoose": "^5.13.23",
     "morgan": "~1.9.0",
     "npm": "^6.7.0",
     "passport": "^0.4.0",
