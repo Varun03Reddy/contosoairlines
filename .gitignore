@@ -373,5 +373,3 @@ jspm_packages
 # Mac
 .DS_Store/
 
-# Ignore environment variables
-.env
